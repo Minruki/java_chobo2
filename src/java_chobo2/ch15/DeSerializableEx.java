@@ -20,8 +20,8 @@ public class DeSerializableEx {
 			UserInfo u2 = (UserInfo) ois.readObject();
 			ArrayList<UserInfo> list = (ArrayList<UserInfo>) ois.readObject();
 
-			System.out.println(u1);
-			System.out.println(u2);
+			System.out.println(list.get(0));
+			System.out.println(list.get(1));
 			System.out.println(list);
 
 		} catch (ClassNotFoundException e) {
