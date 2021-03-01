@@ -1,36 +1,39 @@
 package java_chobo2.ch16;
 
 import java.net.InetAddress;
-import java.rmi.UnknownHostException;
+import java.net.UnknownHostException;
 import java.util.Arrays;
 
 public class InetAddressEx {
 
-	public static void main(String[] args) throws java.net.UnknownHostException, UnknownHostException {
+	public static void main(String[] args) {
 		InetAddress ip = null;
 		InetAddress[] ipArr = null;
 
-		ip = InetAddress.getByName("www.naver.com");
-		System.out.println("GetHostName() :" + ip.getHostName());
-		System.out.println("GetHostAddress() :" + ip.getHostAddress());
-		System.out.println("toString() :" + ip.toString());
+		try {
+			ip = InetAddress.getByName("www.naver.com");
+			System.out.println("getHostName() :" + ip.getHostName());
+			System.out.println("getHostAddress() :" + ip.getHostAddress());
+			System.out.println("toString() :" + ip.toString());
 
-		byte[] ipAddr = ip.getAddress();
-		System.out.println("getAddress() :" + Arrays.toString(ipAddr));
+			byte[] ipAddr = ip.getAddress();
+			System.out.println("getAddress() :" + Arrays.toString(ipAddr));
 
-		String result = " ";
-		for (int i = 0; i < ipAddr.length; i++)
-			result += (ipAddr[i] < 0 ? ipAddr[i] + 256 : ipAddr[i]) + ".";
-		System.out.println("getAddress()+256 :" + result);
-		System.out.println();
+			String result = "";
+			for (int i = 0; i < ipAddr.length; i++)
+				result += (ipAddr[i] < 0 ? ipAddr[i] + 256 : ipAddr[i]) + ".";
+			System.out.println("getAddress()+256 :" + result);
+			System.out.println();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
 
 		try {
 			ip = InetAddress.getLocalHost();
-			System.out.println("GetHostName() :" + ip.getHostName());
-			System.out.println("GetHostAddress() :" + ip.getHostAddress());
+			System.out.println("getHostName() :" + ip.getHostName());
+			System.out.println("getHostAddress() :" + ip.getHostAddress());
 			System.out.println();
-
-		} catch (java.net.UnknownHostException e) {
+		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
 
@@ -38,11 +41,11 @@ public class InetAddressEx {
 			ipArr = InetAddress.getAllByName("www.naver.com");
 
 			for (int i = 0; i < ipArr.length; i++)
-				System.out.println("ipArr[+i+] :" + ipArr[i]);
-
-		} catch (java.net.UnknownHostException e) {
+				System.out.println("ipArr[" + i + "] :" + ipArr[i]);
+		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
 
 	}
+
 }
