@@ -53,6 +53,7 @@ public class LambdaEx01 {
 				return  a > b ? a : b;
 			}
 		};
+		System.out.println("max = " + lbi0.max(1.3));
 		
 		LambdaInter lbi = (i, j) -> i > j ? i : j;
 		int b = lbi.max(5, 3);
