@@ -1,4 +1,4 @@
-package java_chobo2.ch14;
+package java_chobo2.ch14.stream;
 
 import java.util.Random;
 import java.util.stream.Collectors;
