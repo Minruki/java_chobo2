@@ -5,8 +5,6 @@ import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import java_chobo2.ch14.Student;
-
 public class MidStreamEx {
 
 	public static void main(String[] args) {
